@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Personal Portfolio</title>
+    <meta charset="utf-8" />
+
+  </head>
+  <body>
+    <script>let story = 'Last weekend, I took literally the most beautiful bike ride of my life. The route is called "The 9W to Nyack" and it actually stretches all the way from Riverside Park in Manhattan to South Nyack, New Jersey. It\'s really an adventure from beginning to end! It is a 48 mile loop and it basically took me an entire day. I stopped at Riverbank State Park to take some extremely artsy photos. It was a short stop, though, because I had a really long way left to go. After a quick photo op at the very popular Little Red Lighthouse, I began my trek across the George Washington Bridge into New Jersey.  The GW is actually very long - 4,760 feet! I was already very tired by the time I got to the other side.  An hour later, I reached Greenbrook Nature Sanctuary, an extremely beautiful park along the coast of the Hudson.  Something that was very surprising to me was that near the end of the route you actually cross back into New York! At this point, you are very close to the end.';
+
+      let overusedWords = ['really', 'very', 'basically'];
+      
+      let unnecessaryWords = ['extremely', 'literally', 'actually'];
+      
+      let storyWords = story.split(" ")
+      
+      document.write(storyWords.length)
+      document.write("<br>")
+      
+      let betterWords = storyWords.filter(function(word){
+        return !unnecessaryWords.includes(word)
+      })
+      
+      document.write(betterWords.length)
+      document.write("<br>")
+      
+      let reallyCount = 0;
+      let veryCount = 0;
+      let basicallyCount = 0;
+      for (let i = 0; i < betterWords.length; i++) {
+        if (betterWords[i] == 'really') {
+          reallyCount += 1
+        } else if (betterWords[i] == 'very') {
+          veryCount += 1
+        } else if (betterWords[i] == 'basically') {
+          basicallyCount += 1
+        }
+      }
+    
+      let sentenceCount = 0;
+      betterWords.forEach(word => {
+        if (word[word.length-1] === "." || word[word.length-1] === "!") {
+          sentenceCount +=1
+        }
+      })
+      
+      document.write(reallyCount)
+      document.write("<br>")
+      document.write(veryCount)
+      document.write("<br>")
+      document.write(basicallyCount)
+      document.write("<br>")
+      document.write(sentenceCount)
+      document.write("<br>")
+      document.write(betterWords)
+      document.write("<br>")
+      
+      document.write(betterWords.join(' '))
+      document.write("<br>")
+      document.write("<br>")
+      
+      //For the overused words, remove it every other time it appears.
+      const shortWords = betterWords.filter(word => {
+        return !overusedWords.includes(word)
+      });
+      document.write(shortWords.join(" "))
+      document.write("<br>")
+      
+      document.write(shortWords.length)
+      document.write("<br>")
+      
+      // Write a function that finds the word that appears the greatest number of times.
+          distribution = {},
+          max = 0,
+          result = [];
+      
+      betterWords.forEach(function (a) {
+          distribution[a] = (distribution[a] || 0) + 1;
+          if (distribution[a] > max) {
+              max = distribution[a];
+              result = [a];
+              return;
+          }
+          if (distribution[a] === max) {
+              result.push(a);
+          }
+      });
+      document.write('max: ' + max);
+      document.write("<br>")
+      document.write('key/s with max count: ' + JSON.stringify(result));
+      document.write("<br>")
+      document.write(distribution);
+      document.write("<br>")
+      
+      //Replaced overused words with something else.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </script>
+    
+  </body>
+</html>
