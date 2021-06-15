@@ -93,6 +93,20 @@
       document.write("<br>")
       
       //Replaced overused words with something else.
+      for (let i = 0; i < betterWords.length; i++) {
+        for (let j=0; j < overusedWords.length; j++) {
+          if (betterWords[i] == overusedWords[0]) {
+            betterWords[i] = "REPLACED WORD 1"
+          } else if (betterWords[i] == overusedWords[1]) {
+            betterWords[i] = "REPLACED WORD 2"
+          } else if (betterWords[i] == overusedWords[2]) {
+            betterWords[i] = "REPLACED WORD 3"
+          }
+        }
+      }
+
+    
+      document.write(betterWords.join(' '))
       
       
       
